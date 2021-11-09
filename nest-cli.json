@@ -1,0 +1,39 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/mini-ecommerce/src",
+  "monorepo": true,
+  "root": "apps/mini-ecommerce",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/mini-ecommerce/tsconfig.app.json"
+  },
+  "projects": {
+    "mini-ecommerce": {
+      "type": "application",
+      "root": "apps/mini-ecommerce",
+      "entryFile": "main",
+      "sourceRoot": "apps/mini-ecommerce/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/mini-ecommerce/tsconfig.app.json"
+      }
+    },
+    "worker": {
+      "type": "application",
+      "root": "apps/worker",
+      "entryFile": "main",
+      "sourceRoot": "apps/worker/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/worker/tsconfig.app.json"
+      }
+    },
+    "database": {
+      "type": "library",
+      "root": "libs/database",
+      "entryFile": "index",
+      "sourceRoot": "libs/database/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/database/tsconfig.lib.json"
+      }
+    }
+  }
+}
