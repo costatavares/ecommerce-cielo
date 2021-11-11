@@ -4,8 +4,8 @@ import { SalesmanService } from "../salesman/salesman.service";
 import { UsersService } from "../users/users.service";
 
 export const services = [
-    ClientService,
-    SalesmanService,
-    PaymentService,
-    UsersService,
+  ClientService,
+  SalesmanService,
+  PaymentService,
+  UsersService,
 ];

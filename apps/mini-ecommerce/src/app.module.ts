@@ -5,12 +5,12 @@ import { DatabaseModule } from '@database/database';
 import { services } from './all-services';
 import { controller } from './all-controllers';
 import { CieloModule } from 'libs/cielo/src';
-import { UsersService } from './users/users.service';
-import { UsersController } from './users/users.controller';
+import { AuthModule } from 'libs/auth/src';
 
 @Module({
-  imports: [DatabaseModule, CieloModule],
-  controllers: [AppController, ...controller, UsersController],
+  imports: [DatabaseModule, CieloModule, AuthModule],
+  controllers: [AppController, ...controller],
   providers: [AppService, ...services],
+  exports:[DatabaseModule]
 })
 export class AppModule {}

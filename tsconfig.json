@@ -30,6 +30,12 @@
       ],
       "@helpers/helpers/*": [
         "libs/helpers/*"
+      ],
+      "@auth/auth": [
+        "libs/auth/src"
+      ],
+      "@auth/auth/*": [
+        "libs/auth/src/*"
       ]
     }
   }

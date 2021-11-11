@@ -6,19 +6,19 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class ClientService {
-    constructor(
-        private readonly clientRepository: ClientRepository
-    ){}
-    
-    async getAllClient(): Promise<ClientEntity[]> {
-        return this.clientRepository.getAllClient();
-    }
-    
-    async getClientById(id: number): Promise<ClientEntity> {
-        return this.clientRepository.getClientById(id);
-    }
-    
-    async createClient(client: CreateClientDto[]): Promise<ClientEntity[]> {
-        return this.clientRepository.createClient(client);
-    }
+  constructor(
+    private readonly clientRepository: ClientRepository
+  ){}
+  
+  async getAllClient(): Promise<ClientEntity[]> {
+    return this.clientRepository.getAllClient();
+  }
+  
+  async getClientById(id: number): Promise<ClientEntity> {
+    return this.clientRepository.getClientById(id);
+  }
+  
+  async createClient(client: CreateClientDto[]): Promise<ClientEntity[]> {
+    return this.clientRepository.createClient(client);
+  }
 }

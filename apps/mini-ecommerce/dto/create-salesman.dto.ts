@@ -1,5 +1,5 @@
 export interface CreateSalesmanDto{
-    name: string;
+  name: string;
 	email: string;
 	fone: string;
 }

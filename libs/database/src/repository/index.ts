@@ -5,10 +5,10 @@ import { UserRepository } from './user.repository';
 
 //add here all repositories for orm.
 export const repositories = [
-    UserRepository,
-    ClientRepository,
-    SalesmanRepository,
-    PaymentRepository,
+  UserRepository,
+  ClientRepository,
+  SalesmanRepository,
+  PaymentRepository,
 ];
 
 export const customRepositories = [];
