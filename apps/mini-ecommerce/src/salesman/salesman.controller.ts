@@ -1,16 +1,19 @@
-import { SalesmanEntity } from '@database/database/entity';
+import { SalesmanEntity, UserEntity } from '@database/database/entity';
 import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { CreateSalesmanDto } from 'apps/mini-ecommerce/dto/create-salesman.dto';
 import { SalesmanService } from './salesman.service';
 import { AuthGuard } from '@nestjs/passport';
+import { User } from 'libs/decorators/user.decorator';
+import { SalesmanGuard } from 'libs/guards/salesman.guard';
 
 @Controller('salesman')
-@UseGuards(AuthGuard('jwt'))
+@UseGuards(AuthGuard('jwt'), SalesmanGuard)
 export class SalesmanController { 
   constructor(private readonly salesmanService: SalesmanService) { }
 
   @Get()
-  async getAll(): Promise<SalesmanEntity[]>{
+  async getAll(@User() user: UserEntity): Promise<SalesmanEntity[]>{
+    console.log(user);
     return this.salesmanService.getAllSalesman();
   }
 

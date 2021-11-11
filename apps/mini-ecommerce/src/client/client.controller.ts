@@ -3,9 +3,10 @@ import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { CreateClientDto } from 'apps/mini-ecommerce/dto/create-client.dto';
 import { ClientService } from './client.service';
 import { AuthGuard } from '@nestjs/passport';
+import { ClinetGuard } from 'libs/guards/client.guard';
 
 @Controller('client')
-@UseGuards(AuthGuard('jwt'))
+@UseGuards(AuthGuard('jwt'),ClinetGuard)
 export class ClientController {
   constructor(private readonly clientService: ClientService) { }
 

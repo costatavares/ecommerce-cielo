@@ -1,5 +1,6 @@
 import { IsEmail, IsNotEmpty, IsNumber, IsString, Matches } from 'class-validator';
 import { RegExHelper, MessagesHelper } from '@helpers/helpers/index';
+import { Role } from 'libs/guards/enum/role.enum';
 
 export class CreateUserDto {
     
@@ -17,5 +18,7 @@ export class CreateUserDto {
 
   @IsNotEmpty()
   @IsNumber()
-  user_type: number;    
+  user_type: Role;    
 }
+
+

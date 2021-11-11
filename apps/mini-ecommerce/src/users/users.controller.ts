@@ -5,16 +5,17 @@ import { UsersService } from './users.service';
 import { AuthGuard } from '@nestjs/passport';
 
 @Controller('users')
-@UseGuards(AuthGuard('jwt'))
 export class UsersController {
   constructor(private readonly usersService: UsersService) { }
-
+  
   @Get()
+  @UseGuards(AuthGuard('jwt'))
   async getAll(): Promise<UserEntity[]>{
     return this.usersService.getAllUsers();
   }
 
   @Get(':id')
+  @UseGuards(AuthGuard('jwt'))
   async getById(@Param('id') id: number): Promise<UserEntity>{
     return this.usersService.getUsersById(id);
   }
