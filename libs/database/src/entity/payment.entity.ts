@@ -1,9 +1,10 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, Index, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, Unique } from 'typeorm';
 import { CardEntity } from './card.entity';
 import { ClientEntity } from './client.entity';
 import { SalesmanEntity } from './salesman.entity';
 
 @Entity('payment')
+@Index(['payment_number'], {unique: true})
 export class PaymentEntity {
   @PrimaryGeneratedColumn()
   id: number;
@@ -17,7 +18,7 @@ export class PaymentEntity {
   @Column({ type: 'decimal', precision: 5, scale: 2, default: 0 })
   amount_paid: number;
 
-  @Column()
+  @Column({ unique: false})
   id_card: number;
 
   @Column()
@@ -26,8 +27,8 @@ export class PaymentEntity {
   @Column()
   id_client: number;
 
-  @OneToOne(() => CardEntity, (card) => card.payment)
-  @JoinColumn({ name: 'id_card' })
+  @OneToOne(() => CardEntity, (card) => card.payment, { cascade: true })
+  @JoinColumn({ name: 'id_card'})
   card: CardEntity;
 
   @ManyToOne(() => SalesmanEntity, { cascade: ['insert', 'update', 'remove'] })

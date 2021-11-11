@@ -7,7 +7,7 @@ export class CardEntity {
   id: number;
 
   @Column()
-  card_number: number;
+  card_number: string;
 
   @OneToOne(() => PaymentEntity, (payment) => payment.card)
   payment: PaymentEntity;

@@ -18,6 +18,18 @@
       ],
       "@database/database/*": [
         "libs/database/src/*"
+      ],
+      "@cielo/cielo": [
+        "libs/cielo/src"
+      ],
+      "@cielo/cielo/*": [
+        "libs/cielo/src/*"
+      ],
+      "@helpers/helpers": [
+        "libs/helpers"
+      ],
+      "@helpers/helpers/*": [
+        "libs/helpers/*"
       ]
     }
   }
