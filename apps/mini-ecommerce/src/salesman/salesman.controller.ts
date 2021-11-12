@@ -12,8 +12,7 @@ export class SalesmanController {
   constructor(private readonly salesmanService: SalesmanService) { }
 
   @Get()
-  async getAll(@User() user: UserEntity): Promise<SalesmanEntity[]>{
-    console.log(user);
+  async getAll(): Promise<SalesmanEntity[]>{
     return this.salesmanService.getAllSalesman();
   }
 

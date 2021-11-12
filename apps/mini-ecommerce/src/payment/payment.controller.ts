@@ -16,11 +16,11 @@ export class PaymentController {
 
   @Get(':id')
   async getById(@Param('id') id: number): Promise<PaymentEntity>{
-    return this.paymentService.getPaymentById(id);
+    return await this.paymentService.getPaymentById(id);
   }
 
   @Post()
-  async create(@Body() Payment: CreatePaymentDto[]): Promise<PaymentEntity[]>{
-    return this.paymentService.createPayment(Payment);
+  async create(@Body() payment: CreatePaymentDto): Promise<PaymentEntity>{
+    return await this.paymentService.createPayment(payment);
   }
 }

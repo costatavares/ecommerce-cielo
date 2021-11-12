@@ -18,6 +18,9 @@ export class PaymentEntity {
   @Column({ type: 'decimal', precision: 5, scale: 2, default: 0 })
   amount_paid: number;
 
+  @Column({default: 0})
+  status:number;
+  
   @Column({ unique: false})
   id_card: number;
 
@@ -26,6 +29,7 @@ export class PaymentEntity {
 
   @Column()
   id_client: number;
+
 
   @OneToOne(() => CardEntity, (card) => card.payment, { cascade: true })
   @JoinColumn({ name: 'id_card'})

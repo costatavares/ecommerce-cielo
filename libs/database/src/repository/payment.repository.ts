@@ -20,7 +20,7 @@ export class PaymentRepository extends Repository<PaymentEntity>{
     return PaymentEntity;
   }
 
-  async createPayment(Payment: CreatePaymentDto[] ): Promise<PaymentEntity[]> {
+  async createPayment(Payment: CreatePaymentDto ): Promise<PaymentEntity> {
     const PaymentEntity = this.create(Payment);
     return this.save(PaymentEntity);
   }
