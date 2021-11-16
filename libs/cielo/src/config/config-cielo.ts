@@ -5,5 +5,6 @@ const headersRequest = {
 };
 
 export const headersCielo =  { headers: headersRequest }
-export const UrlSalesCielo = 'https://apisandbox.cieloecommerce.cielo.com.br/1/sales/';
-export const ReturnUrlToCielo = "http://api.webhookinbox.com/i/HFOvhbPS/in/"
+export const UrlSalesCielo = process.env.URL_SALES_CIELO;
+export const ReturnUrlToCielo = process.env.RETURN_URL_TOCIELO;
+export const UrlApiQuery = process.env.URL_API_QUERY;

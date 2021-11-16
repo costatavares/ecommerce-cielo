@@ -1,4 +1,4 @@
-import { Column, Entity, Index, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, Unique } from 'typeorm';
+import { Column, CreateDateColumn, Entity, Index, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, Unique } from 'typeorm';
 import { CardEntity } from './card.entity';
 import { ClientEntity } from './client.entity';
 import { SalesmanEntity } from './salesman.entity';
@@ -21,6 +21,9 @@ export class PaymentEntity {
   @Column({default: 0})
   status:number;
   
+  @Column({nullable: true})
+  payment_id:string;
+
   @Column({ unique: false})
   id_card: number;
 
@@ -29,6 +32,9 @@ export class PaymentEntity {
 
   @Column()
   id_client: number;
+  
+  @CreateDateColumn({ type: 'date' })
+  created_at: Date;
 
 
   @OneToOne(() => CardEntity, (card) => card.payment, { cascade: true })

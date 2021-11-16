@@ -6,11 +6,12 @@ import { services } from './all-services';
 import { controller } from './all-controllers';
 import { CieloModule } from 'libs/cielo/src';
 import { AuthModule } from 'libs/auth/src';
+import { ListenersModule } from 'listeners/listeners';
 
 @Module({
-  imports: [DatabaseModule, CieloModule, AuthModule],
+  imports: [DatabaseModule, CieloModule, AuthModule, ListenersModule],
   controllers: [AppController, ...controller],
   providers: [AppService, ...services],
-  exports:[DatabaseModule]
+  exports:[DatabaseModule, ListenersModule]
 })
 export class AppModule {}

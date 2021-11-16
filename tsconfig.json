@@ -36,6 +36,12 @@
       ],
       "@auth/auth/*": [
         "libs/auth/src/*"
+      ],
+      "listeners/listeners": [
+        "libs/listeners/src"
+      ],
+      "listeners/listeners/*": [
+        "libs/listeners/src/*"
       ]
     }
   }

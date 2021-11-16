@@ -52,6 +52,15 @@
       "compilerOptions": {
         "tsConfigPath": "libs/auth/tsconfig.lib.json"
       }
+    },
+    "listeners": {
+      "type": "library",
+      "root": "libs/listeners",
+      "entryFile": "index",
+      "sourceRoot": "libs/listeners/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/listeners/tsconfig.lib.json"
+      }
     }
   }
 }

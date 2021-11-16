@@ -7,11 +7,12 @@ import { response } from 'express';
 import axios from 'axios';
 
 import { firstValueFrom, lastValueFrom } from 'rxjs';
-import { headersCielo, ReturnUrlToCielo, UrlSalesCielo } from './config/config-cielo';
+import { headersCielo, ReturnUrlToCielo, UrlApiQuery, UrlSalesCielo } from './config/config-cielo';
 import { CreatePaymentDto } from 'apps/mini-ecommerce/dto/create-payment.dto';
 import { CieloCreateSalesDto } from './dto/cielo-create-sales.dto';
 import { ClientRepository } from '@database/database/repository/client.repository';
 import { ClientEntity } from '@database/database/entity';
+import { CieloBodySalesDto } from './dto/cielo-body-sales.dto';
 
 @Injectable()
 export class CieloService {
@@ -19,6 +20,10 @@ export class CieloService {
     private readonly httpService: HttpService,
     private readonly clientRepository: ClientRepository
   ) {}
+
+  async consultSale(paymentId: string): Promise<AxiosResponse>{
+    return firstValueFrom(this.httpService.get(UrlApiQuery + `/${paymentId}`, headersCielo));
+  }
 
   async createSale(payment: CreatePaymentDto): Promise<AxiosResponse> {
     const bodySales = await this.setPaymentSale(payment);
@@ -34,7 +39,7 @@ export class CieloService {
     return `${clientEnty.name} ${clientEnty.last_name}`;
   }
 
-  async setPaymentSale(payment: CreatePaymentDto): Promise<CieloCreateSalesDto>{
+  async setPaymentSale(payment: CreatePaymentDto): Promise<CieloCreateSalesDto> {
     
     return {
       MerchantOrderId: payment.payment_number,
@@ -44,11 +49,11 @@ export class CieloService {
     }
   }
   
-  getBody(bodySales: CieloCreateSalesDto){
+  private getBody(bodySales: CieloCreateSalesDto): CieloBodySalesDto {
     return {  
       MerchantOrderId: bodySales.MerchantOrderId,
       Customer:{  
-          Name:"Comprador Cartão de débito"
+        Name: bodySales.Name,
       },
       Payment:{  
         Type:"DebitCard",
