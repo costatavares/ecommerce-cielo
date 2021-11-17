@@ -22,7 +22,7 @@ export class SalesmanController {
   }
 
   @Post()
-  async create(@Body() salesman: CreateSalesmanDto[]): Promise<SalesmanEntity[]>{
+  async create(@Body() salesman: CreateSalesmanDto): Promise<SalesmanEntity>{
     return this.salesmanService.createSalesman(salesman);
   }
 }

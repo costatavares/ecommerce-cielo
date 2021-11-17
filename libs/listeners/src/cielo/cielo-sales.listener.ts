@@ -17,8 +17,6 @@ export class CieloSalesListener {
 
   @OnEvent('cieloSales.consult')
   handleCieloSalesConsultEvent(event: CieloEvent) {
-    console.log('cieloSales.consult');
-    console.log(event);
-    this.paymentRepository.update({id: event.id},{status: event.status})
+    this.paymentRepository.update({id: event.id},{status: event.status});    
   }
 }

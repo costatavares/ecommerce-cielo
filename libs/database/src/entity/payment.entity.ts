@@ -1,4 +1,5 @@
 import { Column, CreateDateColumn, Entity, Index, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, Unique } from 'typeorm';
+import { TransactionEntity } from '.';
 import { CardEntity } from './card.entity';
 import { ClientEntity } from './client.entity';
 import { SalesmanEntity } from './salesman.entity';
@@ -48,5 +49,8 @@ export class PaymentEntity {
   @ManyToOne(() => ClientEntity, { cascade: ['insert', 'update', 'remove'] })
   @JoinColumn({ name: 'id_client' })
   client: ClientEntity[];
+
+  @OneToOne(() => TransactionEntity, (transaction) => transaction.payment)
+  transaction: TransactionEntity;
 
 }

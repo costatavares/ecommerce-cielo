@@ -21,7 +21,7 @@ export class SalesmanRepository extends Repository<SalesmanEntity> {
     return SalesmanEntity;
   }
 
-  async createSalesman(Salesman: CreateSalesmanDto[] ): Promise<SalesmanEntity[]> {
+  async createSalesman(Salesman: CreateSalesmanDto ): Promise<SalesmanEntity> {
     const SalesmanEntity = this.create(Salesman);
     return this.save(SalesmanEntity);
   }

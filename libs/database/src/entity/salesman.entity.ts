@@ -20,7 +20,7 @@ export class SalesmanEntity {
   created_at: Date;
 
   @OneToOne(() => CustomerPortfolioEntity, (customerPortfolio) => customerPortfolio.salesman)
-  customerPortfolio!: CustomerPortfolioEntity;
+  customerPortfolio: CustomerPortfolioEntity;
 
   @OneToMany(() => PaymentEntity, (payment) => payment.salesman)
   payment: PaymentEntity;
