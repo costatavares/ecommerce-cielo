@@ -4,11 +4,15 @@ import { CreateClientDto } from 'apps/mini-ecommerce/dto/create-client.dto';
 import { ClientService } from './client.service';
 import { AuthGuard } from '@nestjs/passport';
 import { ClinetGuard } from 'libs/guards/client.guard';
+import { RabbitmqService } from '@rabbitmq/rabbitmq';
 
 @Controller('client')
 @UseGuards(AuthGuard('jwt'),ClinetGuard)
 export class ClientController {
-  constructor(private readonly clientService: ClientService) { }
+  constructor(
+    private readonly clientService: ClientService, 
+    private readonly rabbitmaq: RabbitmqService,
+  ){ }
 
   @Get()
   async getAll(): Promise<ClientEntity[]>{

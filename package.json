@@ -35,6 +35,8 @@
     "@nestjs/passport": "^8.0.1",
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/typeorm": "^8.0.2",
+    "@types/amqplib": "^0.8.2",
+    "amqplib": "^0.8.0",
     "axios": "^0.24.0",
     "bcrypt": "^5.0.1",
     "class-transformer": "^0.4.0",
@@ -100,7 +102,9 @@
       "^@database/database(|/.*)$": "<rootDir>/libs/database/src/$1",
       "^@cielo/cielo(|/.*)$": "<rootDir>/libs/cielo/src/$1",
       "^@auth/auth(|/.*)$": "<rootDir>/libs/auth/src/$1",
-      "^listeners/listeners(|/.*)$": "<rootDir>/libs/listeners/src/$1"
+      "^listeners/listeners(|/.*)$": "<rootDir>/libs/listeners/src/$1",
+      "^@rabbitmq/rabbitmq(|/.*)$": "<rootDir>/libs/rabbitmq/src/$1",
+      "^@logApi/log-api(|/.*)$": "<rootDir>/libs/log-api/src/$1"
     }
   }
 }

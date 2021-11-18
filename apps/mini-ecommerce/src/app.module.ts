@@ -7,11 +7,13 @@ import { controller } from './all-controllers';
 import { CieloModule } from 'libs/cielo/src';
 import { AuthModule } from 'libs/auth/src';
 import { ListenersModule } from 'listeners/listeners';
+import { RabbitmqModule } from '@rabbitmq/rabbitmq';
+import { LogApiModule } from 'libs/log-api/src';
 
 @Module({
-  imports: [DatabaseModule, CieloModule, AuthModule, ListenersModule],
+  imports: [DatabaseModule, CieloModule, AuthModule, ListenersModule, RabbitmqModule,LogApiModule],
   controllers: [AppController, ...controller],
   providers: [AppService, ...services],
-  exports:[DatabaseModule, ListenersModule]
+  exports:[DatabaseModule, ListenersModule, RabbitmqModule,LogApiModule]
 })
 export class AppModule {}

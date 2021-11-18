@@ -42,6 +42,18 @@
       ],
       "listeners/listeners/*": [
         "libs/listeners/src/*"
+      ],
+      "@rabbitmq/rabbitmq": [
+        "libs/rabbitmq/src"
+      ],
+      "@rabbitmq/rabbitmq/*": [
+        "libs/rabbitmq/src/*"
+      ],
+      "@logApi/log-api": [
+        "libs/log-api/src"
+      ],
+      "@logApi/log-api/*": [
+        "libs/log-api/src/*"
       ]
     }
   }

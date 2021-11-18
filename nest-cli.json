@@ -61,6 +61,24 @@
       "compilerOptions": {
         "tsConfigPath": "libs/listeners/tsconfig.lib.json"
       }
+    },
+    "rabbitmq": {
+      "type": "library",
+      "root": "libs/rabbitmq",
+      "entryFile": "index",
+      "sourceRoot": "libs/rabbitmq/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/rabbitmq/tsconfig.lib.json"
+      }
+    },
+    "log-api": {
+      "type": "library",
+      "root": "libs/log-api",
+      "entryFile": "index",
+      "sourceRoot": "libs/log-api/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/log-api/tsconfig.lib.json"
+      }
     }
   }
 }
