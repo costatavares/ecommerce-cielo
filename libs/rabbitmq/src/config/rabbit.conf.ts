@@ -1,4 +1,4 @@
-import { ConsoleLogger } from "@nestjs/common";
+require('dotenv').config();
 
 export const injectionListRabbitmaq = {
   rabbitConn: 'RABBIT_CONN_INJECT',

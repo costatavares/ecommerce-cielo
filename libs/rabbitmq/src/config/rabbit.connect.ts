@@ -5,5 +5,6 @@ export const rabbitConnect = {
   locale: 'pt-br',
   port: rabbitAMQPPort,
   username: rabbitUser,
-  password: rabbitPassword
+  password: rabbitPassword,
+  // vhost: 'teste',
 }

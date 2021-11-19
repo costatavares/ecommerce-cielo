@@ -7,6 +7,6 @@ import { ListenersService } from './listeners.service';
 @Module({
   imports:[EventEmitterModule.forRoot(), DatabaseModule],
   providers: [ListenersService, ... events],
-  exports: [ListenersService, ...events],
+  exports: [ListenersService, ...events, DatabaseModule],
 })
 export class ListenersModule {}

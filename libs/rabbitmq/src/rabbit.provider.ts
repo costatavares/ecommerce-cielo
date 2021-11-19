@@ -46,8 +46,10 @@ async function createTransmissaoChannel ( conn: Connection ):Promise<Channel> {
     transmissaoPublishChannel = await conn.createChannel();
     transmissaoPublishChannel.on( 'close', () => {
       logger.warn( 'O canal de envio de transmissão foi fechado!' );
-      process.exit( -1 );
-    } )
+      setTimeout(createConnection, 1000);
+      // process.exit( -1 );
+    });
+
   } catch ( err ) {
     logger.error( `Erro ao criar o canal de envio de transmissão. ${err.message}`, err );
     process.exit( -1 );
@@ -56,14 +58,14 @@ async function createTransmissaoChannel ( conn: Connection ):Promise<Channel> {
   return transmissaoPublishChannel;
 }
 
-
 async function  channelAssertQueue(transmissaoPublishChannel: Channel ):Promise<Channel> {
   const logger = new Logger( `AssertQueue`);
   try {
     rabbiTransmissaoPublishQueue.forEach(function(nome, i) {
       if( rabbitPrefix ) nome= `${rabbitPrefix}-${nome}`;
       logger.debug(`Amarrando o canal à fila: ${nome} ...` );
-      transmissaoPublishChannel.assertQueue( nome, { durable: true, autoDelete: false } );
+      // transmissaoPublishChannel.checkQueue(nome);      
+      transmissaoPublishChannel.assertQueue( nome, { durable: true, autoDelete: true } );
       logger.log('Estrutura de publish pronta.' );
     });
     return transmissaoPublishChannel;

@@ -15,5 +15,18 @@ services:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "123456"
 
+  rabbitmq:
+    container_name: autocompara-rabbitmq
+    depends_on:
+      - autocompara-postgres
+    hostname: rabbitmq-server
+    image: rabbitmq:3.8-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=autocompara
+      - RABBITMQ_DEFAULT_PASS=autocompara    
+
 volumes:
   pgdataAutocompara:      

@@ -1,7 +1,8 @@
+require('dotenv').config();
 const headersRequest = {
   'Content-Type': 'application/json',
-  'MerchantId': `741d7df7-5ebb-43ed-9b44-e63708c0a0b4`,
-  'MerchantKey': `CYFEVXBUYSYCIWEJGLVVNYVBYIGTBGGXTPRMUBMI`,
+  'MerchantId': process.env.MERCHAN_ID,
+  'MerchantKey': process.env.MERCHAN_KEY,
 };
 
 export const headersCielo =  { headers: headersRequest }

@@ -24,26 +24,52 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[Nest](https://github.com/nestjs/nest) framework. 
+
+Mini e-commerce system with only DEBIT card payments, using Cielo's sandbox environment, with bidirectional communication between REST APIs, since cielo requires an extra authentication in this mode and sends a POST request back to a url which will be provided as an endpoint for Cielo's payment notifications.
 
 ## Installation
 
 
 ```bash
+# version node v12.9.1
 $ npm install
+
+# Copy .env.exemplo to .env in core project 
+.env.exemplo
+
+# inside .env 
+ # 1 - Create an inbox with webhook inbox - http://webhookinbox.com/ inside .env
+  RETURN_URL_TOCIELO= # URL create in webhook inbox 
+
+  # 2 - Create key openssl with command:  
+  $ openssl rand -base64 32 
+
+   JWT_SECRET_KEY= # add here key generated
+
+  # 3 - Create your test keys in the free cielo environment here:  https://cadastrosandbox.cieloecommerce.cielo.com.br
+  MERCHAN_ID=
+  MERCHAN_key=  
+  
 ```
 
 ## Running the app
 
 ```bash
+# docker
+ docker-compose up -d
+
 # development
 $ npm run start
+$ npm run start worker 
 
 # watch mode
-$ npm run start:dev
+$ npm run dev
+$ npm run dev worker
 
 # production mode
 $ npm run start:prod
+$ npm run start:prod worker
 ```
 
 ## Test

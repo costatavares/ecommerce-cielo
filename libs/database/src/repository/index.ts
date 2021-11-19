@@ -1,5 +1,6 @@
 import { ClientRepository } from './client.repository';
 import { CustomerPortfolioRepository } from './customer-portfolio.repository';
+import { LogRepository } from './log.repository';
 import { PaymentRepository } from './payment.repository';
 import { SalesmanRepository } from './salesman.repository';
 import { TransactionRepository } from './transaction.repository';
@@ -13,6 +14,7 @@ export const repositories = [
   PaymentRepository,
   CustomerPortfolioRepository,
   TransactionRepository,
+  LogRepository,
 ];
 
 export const customRepositories = [];

@@ -1,3 +1,4 @@
+require('dotenv').config();
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { join } from 'path';
 
@@ -16,6 +17,7 @@ const config: TypeOrmModuleOptions = {
   database: process.env.DB_NAME,
   synchronize: false,
   migrationsRun: false,
+  autoLoadEntities: true, 
   entities,
   logging: process.env.NODE_ENV === 'local',
   migrations: [join(__dirname, '../migration/*.ts')],
@@ -26,6 +28,3 @@ const config: TypeOrmModuleOptions = {
 };
 
 export default config;
-
-// /home/anderson/mjv/mini-ecommerce/libs/database/src/entity/user.entity.ts
-// dist/apps/mini-ecommerce

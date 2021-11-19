@@ -5,6 +5,7 @@ import { PaymentEntity } from './payment.entity';
 import { SalesmanEntity } from './salesman.entity';
 import { UserEntity } from './user.entity';
 import { TransactionEntity } from './transaction.entity';
+import { LogEntity } from './log.entity';
 
 export {
   UserEntity,
@@ -14,4 +15,5 @@ export {
   CardEntity,
   ClientEntity,
   TransactionEntity,
+  LogEntity,
 };

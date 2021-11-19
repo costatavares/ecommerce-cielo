@@ -6,6 +6,6 @@ import { DatabaseModule } from '@database/database';
 @Module({
   imports: [HttpModule, DatabaseModule],
   providers: [CieloService],
-  exports: [CieloService],
+  exports: [CieloService, DatabaseModule],
 })
 export class CieloModule {}
